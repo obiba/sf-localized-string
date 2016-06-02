@@ -12,6 +12,7 @@ gulp.task('default', ['minify', 'connect', 'watch']);
 gulp.task('connect', function () {
   connect.server({
     root: ['demo', './'],
+    port: 8888,
     livereload: true,
   });
 });
