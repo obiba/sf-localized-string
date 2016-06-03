@@ -13,7 +13,6 @@ angular.module('sfLocalizedString', [
         f.locales = ['en'];
       }
       options.lookup[sfPathProvider.stringify(options.path)] = f;
-      console.log(f);
       return f;
     }
   };
