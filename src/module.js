@@ -7,6 +7,7 @@ angular.module('sfLocalizedString', [
   var locStr = function(name, schema, options) {
     if (schema.type === 'object' && schema.format == 'localizedString') {
       var f = schemaFormProvider.stdFormObj(name, schema, options);
+      f.key  = options.path;
       f.type = 'localizedstring';
       if(!f.locales) {
         f.locales = ['en'];
