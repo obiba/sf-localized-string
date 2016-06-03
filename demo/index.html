@@ -16,20 +16,26 @@
       angular.module('test', ["schemaForm","sfLocalizedString"]).controller('FormController', function($scope) {
 
         $scope.schema = {
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "title": "Name",
-      "description": "Name or alias",
-      "maxLength": 10,
-      "minLength": 2,
-      "required": true
-    }
-  }
-}
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "object",
+              "format": "localizedString",
+              "title": "Name",
+              "description": "Name or alias",
+              "maxLength": 10,
+              "minLength": 2,
+              "required": true
+            }
+          }
+        };
 
-        $scope.form = [{"type":"sflocalizedstring","key":"name","myOwnFormOption":"Hello world!"}]
+        $scope.form = [{
+          "type":"localizedstring",
+          "key":"name",
+          "myOwnFormOption":"Hello world!"
+        }];
+
         $scope.model = {};
 
         $scope.debug = {schema: angular.copy($scope.schema), form: angular.copy($scope.form)};
@@ -44,7 +50,7 @@
     <div class="container-fluid" ng-controller="FormController">
 
         <div class="col-sm-6 form">
-          <form sf-schema="schema" sf-form="form" sf-model="model"></form>
+          <form sf-schema="schema" sf-form="form" sf-model="model" sf-options="{formDefaults: { locales: ['en','fr']}}"></form>
         </div>
 
         <div class="col-sm-6 debug">
