@@ -1,8 +1,9 @@
 angular.module('sfLocalizedString', [
   'schemaForm',
   'templates'
-]).config(function(schemaFormProvider,  schemaFormDecoratorsProvider, sfBuilderProvider, sfPathProvider) {
-  
+]).config(['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfBuilderProvider', 'sfPathProvider',
+  function(schemaFormProvider,  schemaFormDecoratorsProvider, sfBuilderProvider, sfPathProvider) {
+
   var locStr = function(name, schema, options) {
     if (schema.type === 'object' && (schema.format == 'localizedString' || schema.format == 'localizedTextArea')) {
       var f = schemaFormProvider.stdFormObj(name, schema, options);
@@ -25,4 +26,4 @@ angular.module('sfLocalizedString', [
     sfBuilderProvider.stdBuilders   // List of builder functions to apply.
   );
 
-});
+}]);
