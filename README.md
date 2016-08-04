@@ -53,3 +53,10 @@ The Definition:
 }
 ```
 
+Events
+------
+
+
+| Name          | Type          | What |
+| ------------- |:-------------:| -----:|
+| sfLocalizedStringLocaleChanged| String        | changes the current locale|
