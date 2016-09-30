@@ -79,10 +79,10 @@ angular.module('sfLocalizedString', [
     });
     
     $scope.render = function (text) {
-      if (text) {
+      if (text && text[$scope.selectedLocale]) {
         return marked(text[$scope.selectedLocale]);
       }
-      return text;
+      return text[$scope.selectedLocale];
     };
 
     $scope.open = false;
