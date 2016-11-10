@@ -22,7 +22,7 @@ Make sure to include `sf-localized-string.min.js` in your index file and load th
 ```
 var myModule = angular.module('myModule', [
  ...
- 'sfLocalizedString',
+ 'sfLocalizedString','hc.marked'
 ]);
 ```
 
@@ -50,6 +50,20 @@ The Definition:
   "type":"localizedstring",
   "key":"name",
   "showLocales": true
+}
+```
+
+To enable markdown support, the definition must have the properties ``` rows ``` bigger or equal to  ``` 2 ``` and ``` marked ``` set to ``` true ```.
+
+Example Definition:
+
+```
+{
+  "type":"localizedstring",
+  "key":"name",
+  "showLocales": true,
+  "rows": 2,
+  "marked": true
 }
 ```
 
