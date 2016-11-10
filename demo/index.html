@@ -7,6 +7,8 @@
     <script src="../bower_components/angular-schema-form/dist/schema-form.js"></script>
     <script src="../bower_components/angular-schema-form-bootstrap/bootstrap-decorator.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/marked/marked.min.js"></script>
+    <script src="../bower_components/angular-marked/dist/angular-marked.min.js"></script>
     <script src="../dist/sf-localized-string.js"></script>
 
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -14,7 +16,7 @@
 
     <script>
 
-      angular.module('test', ["schemaForm","sfLocalizedString","ui.bootstrap"]).controller('FormController', function($scope) {
+      angular.module('test', ["schemaForm","sfLocalizedString","ui.bootstrap","hc.marked"]).controller('FormController', function($scope) {
 
         $scope.locale = 'en';
 
@@ -52,7 +54,30 @@
           {
             "type":"localizedstring",
             "key":"description",
-            "rows": 10
+            "rows": 10,
+            "marked": true
+          },
+          {
+            "type": "fieldset",
+            "items": [
+              {
+                "type": "help",
+                "helpvalue": "<h3>Preview</h3>"
+              },
+              {
+                "type":"localizedstring",
+                "key":"name",
+                "readonly": true
+              },
+              {
+                "type": "localizedstring",
+                "key":"description",
+                "rows": 10,
+                "marked": true,
+                "readonly": true,
+                "conditional": "descriptionPreview"
+              }
+            ]
           }
         ];
 
@@ -60,6 +85,10 @@
           "name": {
             "en": "eeeee",
             "fr": "fffff"
+          },
+          "description": {
+            "en": "## This will render a heading 2 tag",
+            "fr": "**Ce texte sera en gras**"
           }
         };
 
