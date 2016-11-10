@@ -77,9 +77,11 @@ angular.module('sfLocalizedString', [
       $scope.selectedLocale = locale;
     });
     
-    $scope.render = function (text) {
+    $scope.render = function (text, tablestyle) {
       if (text && text[$scope.selectedLocale]) {
-        return marked(text[$scope.selectedLocale]);
+        var html = marked(text[$scope.selectedLocale]);
+        var tstyle = tablestyle ? tablestyle : 'table table-striped table-bordered';
+        return html.split('<table>').join('<table class="' + tstyle + '">');
       }
       return text[$scope.selectedLocale];
     };
