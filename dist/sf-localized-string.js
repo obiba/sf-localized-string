@@ -84,7 +84,7 @@ angular.module('sfLocalizedString', [
         var tstyle = tablestyle ? tablestyle : 'table table-striped table-bordered';
         return html.split('<table>').join('<table class="' + tstyle + '">');
       }
-      return text[$scope.selectedLocale];
+      return '';
     };
 
     $scope.open = false;

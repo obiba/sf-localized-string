@@ -7,7 +7,9 @@ var templateCache = require('gulp-angular-templatecache');
 var streamqueue = require('streamqueue');
 var fs = require('fs');
 
-gulp.task('default', ['minify', 'connect', 'watch']);
+gulp.task('default', ['minify'  ]);
+
+gulp.task('watch', ['minify', 'connect', 'watch']);
 
 gulp.task('connect', function () {
   connect.server({
