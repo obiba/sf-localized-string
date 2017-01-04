@@ -61,7 +61,7 @@ angular.module('sfLocalizedString', [
 
     $scope.$watch('form', function () {
       $scope.form.disableErrorState = $scope.form.hasOwnProperty('readonly') && $scope.form.readonly;
-      $scope.selectedLocale = $scope.form.locales && $scope.form.locales.length > 0 ? $scope.form.locales[0] : '';
+      $scope.selectedLocale = $scope.form.locales && $scope.form.locales.length > 0 ? $rootScope.sfSelectedLocale ? $rootScope.sfSelectedLocale : $scope.form.locales[0] : '';
     });
 
     $scope.selectLocale = function (locale) {
@@ -75,6 +75,7 @@ angular.module('sfLocalizedString', [
 
     $scope.$on('sfLocalizedStringLocaleChanged', function (event, locale) {
       $scope.selectedLocale = locale;
+      $rootScope.sfSelectedLocale = locale;
     });
     
     $scope.render = function (text, tablestyle) {
