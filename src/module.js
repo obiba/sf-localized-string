@@ -13,9 +13,10 @@ angular.module('sfLocalizedString', [
           f.languages = {en: 'English'};
         }
         f.locales = Object.keys(f.languages);
-        f.validationMessage = {
-          completed: 'The field must be completed in all specified languages'
-        };
+        f.validationMessage = options.global.validationMessage || {};
+        f.validationMessage.completed = f.validationMessage.completed ||
+          'The field must be completed in all specified languages';
+
         f.$validators = {
           completed: function (value) {
             if (f.required && value && Object.keys(value).length > 0) {
