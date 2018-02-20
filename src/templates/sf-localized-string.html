@@ -13,6 +13,7 @@
   <div ng-if="!form.rows || form.rows <= 1"
        ng-class="{'form-group' : !$last}">
     <input type="text" class="form-control"
+           ng-model-options="{ allowInvalid: true }"
            ng-disabled="form.readonly"
            sf-field-model="replaceAll" ng-model="$$value$$[locale]"
            ng-repeat="locale in form.locales"
@@ -27,6 +28,7 @@
     </div>
     <textarea class="form-control" ng-if="!form.readonly || !form.marked"
               ng-disabled="form.readonly"
+              ng-model-options="{ allowInvalid: true }"
               sf-field-model="replaceAll" ng-model="$$value$$[locale]"
               rows="{{form.rows ? form.rows : 5}}"
               ng-repeat="locale in form.locales"
